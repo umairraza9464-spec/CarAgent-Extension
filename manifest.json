@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "🚗 Car Agent Pro",
+  "version": "2.0",
+  "description": "OLX & Facebook chat se car details automatically extract करो - Free, No API needed",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "notifications",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://www.olx.in/*",
+    "https://www.olx.com/*",
+    "https://www.facebook.com/*",
+    "https://www.instagram.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Car Agent Pro"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.olx.in/*",
+        "https://www.facebook.com/*",
+        "https://www.instagram.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
